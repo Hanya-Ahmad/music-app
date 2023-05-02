@@ -1,4 +1,5 @@
 import { getTracks, addSongsToUI, discoverPage, observerOptions, homePageListElem, nowPlayingImg, nowPlayingTitle, nowPlayingArtist, nowPlayingSong, addSongClickEvents} from "./index.js";
+let linkElems=document.querySelectorAll('.like-icon')
 
 const handleDiscoverPageChange = () => {
 	let parsedResult;
@@ -11,8 +12,7 @@ const handleDiscoverPageChange = () => {
 	  getTracks(url)
 		.then(result => {
 		  parsedResult = JSON.parse(result);
-		  console.log(parsedResult['tracks']);
-		  parsedResult = addSongsToUI(parsedResult,'topsongs');
+		  parsedResult = addSongsToUI(parsedResult,'topsongs',linkElems);
 		})
 		.then(() => {
 		  const songElements = document.querySelectorAll('.music__list-item');

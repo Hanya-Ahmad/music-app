@@ -1,42 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Music App</title>
     <link href="css/style.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a66cc8c08e.js" crossorigin="anonymous"></script>
   </head>
   <body>
 
-    
 <div class="wrapper">
-  <aside class="sidebar">
-    <ul class="sidebar__main-links">
-      <li>Browse</li>
-      <li>Radio</li>
-    </ul>
-    <ul class="sidebar__music">
-      <h2 class="sidebar__header">Your Music</h2>
-      <li>Your Daily Mix</li>
-      <li>Songs</li>
-      <li>Albums</li>
-      <li>Artists</li>
-      <li>Stations</li>
-      <li>Local Files</li>
-    </ul>
-    <ul class="sidebar__playlists">
-      <h2 class="sidebar__header">Playlists</h2>
-      <li>Liked from Radio</li>
-      <li>Indie Pop</li>
-      <li>Roadtrip</li>
-      <li>Release Radar</li>
-      <li>Focus</li>
-      <li>Piano Mood</li>
-      <li>Your Summer Rewind</li>
-      <li>Inspire</li>
-      <li>Alternative Faves</li>
-    </ul>
-  </aside>
-  
-  <main>
+  <main id="main">
     <header class="main__header">
       <div class="search-box" id="search-box">
         <input type="text" placeholder="Search...">
@@ -44,30 +16,24 @@
       </div>
     </header>
     <nav class="main__nav"><a class="link is-active" id="discover" href="#">Discover</a>
-      <a class="link" id="search-results" href="#">Search Results</a>
+      <a class="link hidden" id="liked-songs" href="#">Liked Songs</a>
+
+      <a class="link hidden" id="search-results" href="#">Search Results</a>
       </nav> 
     <section class="main__playlists" id>
-      <!-- <h2>Top Songs</h2> -->
-
       <ul class="music__list" id="music__list">
-
-  
       </ul>
     </section>
   </main>
-  <aside class="activity">
-    <h2>Friend Activity</h2>
-    <button class="button">Find Friends</button>
-  </aside>
+
 </div>
 
 
-<footer class="footer"> 
-  <div class="now-playing"><img class="album__image" id="now_playing_img" src=""/>
+<footer class="footer hidden"> 
+  <div class="now-playing" id="now_playing"><img class="album__image" id="now_playing_img" src=""/>
     <div class="album__info"><span class="album__title" id="now_playing_title" ></span><span class="album__musician" id="now_playing_artist"></span></div>
+    <div class="like-div"><i id="now_playing_like_icon" class="like-icon fa fa-heart-o" aria-hidden="true"></i> </div>
   </div>
-  <!-- <div class="audio-player"> -->
-
   <div class="audio-player">
     <audio controls  id="now_playing_song" preload="auto" style="visibility: hidden; width:0; height:0;">
       <source   src="">
@@ -75,6 +41,10 @@
     <div class="progress-bar">
       <div class="progress"></div>
       <div class="circle"></div>
+      <div class="time">
+        <span class="elapsed-time">0:00</span>
+        <span class="remaining-time">-0:00</span>
+      </div>
     </div>
      <div class="play-controls"><i class="fas fa-fast-backward"></i><i class="far fa-play-circle"></i><i class="fas fa-fast-forward"></i></div>
   </div>
@@ -88,20 +58,11 @@
     </div>
    </div>
   </div>
-
-  <!-- <div class="progress-bar">
-    <div class="progress"></div>
-    <div class="circle"></div>
-  </div> -->
-  <!-- <div class="play-controls"><i class="fas fa-fast-backward"></i><i class="far fa-play-circle"></i><i class="fas fa-fast-forward"></i></div>
-  <div class="play-device-controls"><i class="fas fa-volume-up"></i></div> -->
-<!-- </div> -->
-
 </footer>
 </body>
 <script type="module" src="js/index.js"></script>
-
 <script type="module" src="js/nowplaying.js"></script>
 <script type="module" src="js/topsongs.js"></script>
 <script type="module" src="js/search.js"></script>
+<script type="module" src="js/likedsongs.js"></script>
   </html>
