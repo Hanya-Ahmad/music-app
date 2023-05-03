@@ -5,7 +5,7 @@ const app= express();
 const bodyParser= require('body-parser');
 
 const path = require('path');
-const redirectUri = 'http://localhost:3000/callback';
+
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

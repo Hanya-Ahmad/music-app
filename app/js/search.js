@@ -14,7 +14,6 @@ const handleSearchResultsPage = ()=>{
 	while (homePageListElem.firstChild) {
 		homePageListElem.removeChild(homePageListElem.firstChild);
 	}
-	// while(sea)
 
 	let searchTerm = searchBox.value;
 	const searchURL = `https://shazam.p.rapidapi.com/search?term=${searchTerm}&locale=en-US&offset=0&limit=5`;

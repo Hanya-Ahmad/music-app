@@ -2,6 +2,7 @@ import { likedSongsPage, observerOptions,homePageListElem, getTracks, likeSong,n
 const targetNode = document.getElementById('main');
 const config = { attributes: true, childList: true, subtree: true, attributeFilter: ['class'] };
 let likedSongs=[];
+
 const constructLikesPage =  function(mutationsList) {
     observer.disconnect();
 	for(let mutation of mutationsList) {
@@ -94,9 +95,7 @@ function handleLikesPage() {
                     getTracks(url).then(result => {
                     parsedResult = JSON.parse(result)}).then(async ()=>{
                     hubURL = parsedResult['hub']['actions'][1]['uri'];
-                    nowPlayingImg.setAttribute('src', likedSongs[i].coverart);
-                    nowPlayingTitle.innerHTML = likedSongs[i].title;
-                    nowPlayingArtist.innerHTML = likedSongs[i].subtitle;
+                    
                     return await fetch(hubURL, {
                         method: 'GET',
                         'X-RapidAPI-Key': '1512532601msh0d2ab2a07c62b6fp17fb67jsn23b5bd40391f',
@@ -105,6 +104,9 @@ function handleLikesPage() {
                   .then(blob => {
                     const audioUrl = URL.createObjectURL(blob);
                     nowPlayingSong.src = audioUrl;
+                    nowPlayingImg.setAttribute('src', likedSongs[i].coverart);
+                    nowPlayingTitle.innerHTML = likedSongs[i].title;
+                    nowPlayingArtist.innerHTML = likedSongs[i].subtitle;
                     footer.classList.remove('hidden');
                     nowPlayingSong.play();
                     nowPlayingDiv.id=`id=${elementId}`;
